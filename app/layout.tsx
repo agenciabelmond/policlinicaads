@@ -41,6 +41,26 @@ export default function RootLayout({
             gtag('config', 'AW-16659228092');
           `}
         </Script>
+
+        {/* ✅ Event Snippet de Conversão Adicionado */}
+        <Script id="gtag-conversion" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-16659228092/WHxMCPOklpsbELzL3oc-',
+                  'value': 1.0,
+                  'currency': 'BRL',
+                  'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
       </head>
 
       <body className={montserrat.className}>{children}</body>
