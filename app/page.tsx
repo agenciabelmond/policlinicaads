@@ -19,6 +19,26 @@ export default function Home() {
             gtag('config', 'AW-16659228092');
           `}
         </Script>
+
+        {/* ✅ EVENT SNIPPET ADICIONADO AQUI */}
+        <Script id="gtag-conversion" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-16659228092/WHxMCPOklpsbELzL3oc-',
+                  'value': 1.0,
+                  'currency': 'BRL',
+                  'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
       </head>
 
       <div className="min-h-screen flex flex-col bg-primary">
@@ -43,10 +63,12 @@ export default function Home() {
             Clique no botão abaixo para prosseguir seu atendimento
           </h1>
 
+          {/* ✅ SE QUISER DISPARAR O EVENTO AO CLICAR, USE onClick */}
           <Link
             href="https://api.whatsapp.com/send/?phone=%2B55555481156367&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es.&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => gtag_report_conversion()}
             className="relative inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-white px-10 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 animate-pulse-subtle shadow-lg"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -67,4 +89,3 @@ export default function Home() {
     </>
   )
 }
-
