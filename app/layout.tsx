@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 
 const montserrat = Montserrat({
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "icon.png",
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -25,6 +26,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <head>
+        {/* Google Tag Manager (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16659228092"
+        />
+
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16659228092');
+          `}
+        </Script>
+      </head>
+
       <body className={montserrat.className}>{children}</body>
     </html>
   )
