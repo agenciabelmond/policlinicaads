@@ -53,7 +53,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-primary">
       <header className="bg-white py-4 px-4 flex items-center justify-center gap-3">
         <Image
-          src="/logo.png"
+          src="whatsapp (2).png"
           alt="Policlínica Logo"
           width={280}
           height={80}
