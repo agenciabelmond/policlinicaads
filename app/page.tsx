@@ -79,9 +79,13 @@ export default function Home() {
           onClick={handleClick}
           className="relative inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-white px-10 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 animate-pulse-subtle shadow-lg"
         >
-          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c..." />
-          </svg>
+          <Image
+            src="/whatsapp (2).png"
+            alt="WhatsApp"
+            width={24}
+            height={24}
+            className="w-6 h-6 object-contain"
+          />
           Entrar em contato
           <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center shadow-md ring-2 ring-whatsapp">
             3
