@@ -84,7 +84,7 @@ export default function Home() {
             alt="WhatsApp"
             width={24}
             height={24}
-            className="w-6 h-6 object-contain"
+            className="w-10 h-10 object-contain"
           />
           Entrar em contato
           <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center shadow-md ring-2 ring-whatsapp">
